@@ -74,18 +74,18 @@ fetch("emissionen.json")
   }
 }
 
+const sortierRichtung = {}; // globale Variable zur Speicherung der Sortierrichtung
+
 function sortiereTabelle(spaltenIndex) {
   const table = document.getElementById("emissions-tabelle");
+  let richtung = sortierRichtung[spaltenIndex] || "asc";
   let switching = true;
-  let richtung = "asc";
 
   while (switching) {
     switching = false;
     const rows = table.rows;
-    let sollteTauschen = false;
-    let i;
 
-    for (i = 1; i < rows.length - 1; i++) {
+    for (let i = 1; i < rows.length - 1; i++) {
       const x = rows[i].getElementsByTagName("TD")[spaltenIndex];
       const y = rows[i + 1].getElementsByTagName("TD")[spaltenIndex];
 
@@ -96,21 +96,53 @@ function sortiereTabelle(spaltenIndex) {
       const a = istZahl ? parseFloat(xContent.replace(/\./g, '').replace(',', '.')) : xContent.toLowerCase();
       const b = istZahl ? parseFloat(yContent.replace(/\./g, '').replace(',', '.')) : yContent.toLowerCase();
 
-      if ((richtung === "asc" && a > b) || (richtung === "desc" && a < b)) {
-        sollteTauschen = true;
+      const tauschen =
+        (richtung === "asc" && a > b) ||
+        (richtung === "desc" && a < b);
+
+      if (tauschen) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
         break;
       }
     }
-
-    if (sollteTauschen) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    } else {
-      if (richtung === "asc") {
-        richtung = "desc";
-        switching = true;
-      }
-    }
   }
+
+  // Richtung fürs nächste Mal umdrehen
+  sortierRichtung[spaltenIndex] = richtung === "asc" ? "desc" : "asc";
 }
 
+
+// script.js → nur JavaScript, ohne <script>!
+
+document.addEventListener("DOMContentLoaded", function () {
+  const burgerButton = document.getElementById("burger-toggle");
+  const navigation = document.querySelector(".navigation");
+
+  if (burgerButton && navigation) {
+    burgerButton.addEventListener("click", function () {
+      navigation.classList.toggle("show");
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const sprache = navigator.language || navigator.userLanguage;
+  const navigation = document.querySelector(".navigation");
+
+  if (sprache.startsWith("ar") || sprache.startsWith("he") || sprache.startsWith("fa")) {
+    navigation.setAttribute("dir", "ltr");
+  } else {
+    navigation.setAttribute("dir", "rtl");
+  }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const sprache = navigator.language || navigator.userLanguage;
+  const navigation = document.querySelector(".navigation");
+
+  if (sprache.startsWith("ar") || sprache.startsWith("he") || sprache.startsWith("fa")) {
+    navigation.setAttribute("dir", "ltr");
+  } else {
+    navigation.setAttribute("dir", "rtl");
+  }
+});

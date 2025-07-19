@@ -1,0 +1,120 @@
+/* 🌿 Grund-Layout */
+body {
+  background-color: #b7d9c7;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 10px;
+  background-color: #f2f9f6; /* sanftes Grün */
+  border-bottom: 2px solid #b7d9c7;
+}
+
+/* 🔠 Logo und Titel nebeneinander */
+.kopfbereich {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.titelbereich h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #2a5934;
+}
+
+.titelbereich p {
+  margin: 2px 0 0;
+  color: #4b7c5a;
+  font-size: 1rem;
+}
+
+/* 📦 Wrapper für Burger & Navigation */
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Standard: LTR → Menü links */
+}
+
+/* RTL: Menü rechts */
+.nav-container[dir="rtl"] {
+  align-items: flex-end;
+}
+
+/* 🍔 Burger-Button */
+.burger-button {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+/* 🧭 Navigation (mobil: versteckt) */
+.navigation {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+/* Wenn aktiv (per JS): sichtbar */
+.navigation.show {
+  display: block;
+}
+
+/* Menüliste */
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Sprachabhängige Ausrichtung */
+.navigation[dir="ltr"] ul {
+  justify-content: flex-start;
+}
+
+.navigation[dir="rtl"] ul {
+  justify-content: flex-end;
+}
+
+/* Menülinks */
+.navigation a {
+  text-decoration: none;
+  color: #2a5934;
+  padding: 0.5rem;
+  display: block;
+}
+
+.navigation a:hover {
+  background-color: #d5ebe0;
+}
+
+/* 💻 Ab 768px: Horizontalmenü sichtbar */
+@media (min-width: 768px) {
+  .burger-button {
+    display: none;
+  }
+
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navigation {
+    display: block !important;
+    margin-top: 0;
+  }
+
+  .navigation ul {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
