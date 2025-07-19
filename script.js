@@ -49,29 +49,31 @@ fetch("emissionen.json")
     console.error("Fehler beim Laden der JSON-Datei:", error);
   });
 
-  //Filterung der Tabelle basierend auf Benutzereingaben
-function tabelleFiltern() {
-  const input = document.getElementById("suchfeld");
-  const filter = input.value.toUpperCase();
-  const table = document.getElementById("emissions-tabelle");
-  const tr = table.getElementsByTagName("tr");
+  function tabelleFiltern() {
+  const eingabe = document.getElementById("suchfeld");
+  const filter = eingabe.value.toUpperCase();
+  const tabelle = document.getElementById("emissions-tabelle");
+  const zeilen = tabelle.getElementsByTagName("tr");
 
-  // Durchsuche alle Zeilen
-  for (let i = 1; i < tr.length; i++) { // Start bei 1 = überspringe <thead>
-    const tds = tr[i].getElementsByTagName("td");
-    let sichtbar = false;
+  for (let i = 1; i < zeilen.length; i++) {
+    const zellen = zeilen[i].getElementsByTagName("td");
+    let zeileAnzeigen = false;
 
-    // Durchsuche alle Zellen der Zeile
-    for (let j = 0; j < tds.length; j++) {
-      const td = tds[j];
-      if (td && td.textContent.toUpperCase().indexOf(filter) > -1) {
-        sichtbar = true;
+    for (let j = 0; j < zellen.length; j++) {
+      const zelle = zellen[j];
+      if (zelle) {
+        const text = zelle.textContent || zelle.innerText;
+        if (text.toUpperCase().indexOf(filter) > -1) {
+          zeileAnzeigen = true;
+          break;
+        }
       }
     }
 
-    tr[i].style.display = sichtbar ? "" : "none";
+    zeilen[i].style.display = zeileAnzeigen ? "" : "none";
   }
 }
+
 function sortiereTabelle(spaltenIndex) {
   const table = document.getElementById("emissions-tabelle");
   let switching = true;
@@ -80,8 +82,10 @@ function sortiereTabelle(spaltenIndex) {
   while (switching) {
     switching = false;
     const rows = table.rows;
+    let sollteTauschen = false;
+    let i;
 
-    for (let i = 1; i < rows.length - 1; i++) {
+    for (i = 1; i < rows.length - 1; i++) {
       const x = rows[i].getElementsByTagName("TD")[spaltenIndex];
       const y = rows[i + 1].getElementsByTagName("TD")[spaltenIndex];
 
@@ -93,18 +97,20 @@ function sortiereTabelle(spaltenIndex) {
       const b = istZahl ? parseFloat(yContent.replace(/\./g, '').replace(',', '.')) : yContent.toLowerCase();
 
       if ((richtung === "asc" && a > b) || (richtung === "desc" && a < b)) {
-        // ✅ i ist hier gültig, weil du IN der Schleife bist
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
+        sollteTauschen = true;
         break;
       }
     }
 
-    if (!switching && richtung === "asc") {
-      richtung = "desc";
+    if (sollteTauschen) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
+    } else {
+      if (richtung === "asc") {
+        richtung = "desc";
+        switching = true;
+      }
     }
   }
 }
-
 

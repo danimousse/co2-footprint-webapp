@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GreenStat – Transparenz für Klimadaten</title>
+    
+    />
   </head>
   <body>
     <header>
@@ -58,11 +59,12 @@
           oder persönliche Interessen genutzt werden.
         </p>
         <input
-          type="text"
-          id="suchfeld"
-          onkeyup="tabelleFiltern()"
-          placeholder="Suche nach Land, Unternehmen oder Branche"
-        />
+  type="text"
+  id="suchfeld"
+  onkeyup="tabelleFiltern()"
+  placeholder="Suche nach Land, Unternehmen oder Branche..."
+  style="margin-bottom: 10px; padding: 5px; width: 100%; max-width: 400px;"
+/>
 
         <table id="emissions-tabelle">
           <thead>
@@ -76,6 +78,8 @@
           </thead>
           <tbody></tbody>
         </table>
+
+    
       </section>
 
       <section id="contact">
@@ -105,6 +109,8 @@
         <a href="#impressum">Impressum</a>
       </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@30.0.4/dist/ag-grid-community.min.js"></script>
     <script src="script.js"></script>
+   
   </body>
 </html>
