@@ -126,23 +126,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const sprache = navigator.language || navigator.userLanguage;
+  const naviContainer = document.querySelector(".nav-container");
   const navigation = document.querySelector(".navigation");
 
   if (sprache.startsWith("ar") || sprache.startsWith("he") || sprache.startsWith("fa")) {
-    navigation.setAttribute("dir", "ltr");
+    naviContainer.classList.add("rtl");
+    navigation.classList.add("rtl");
   } else {
-    navigation.setAttribute("dir", "rtl");
-  }
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const sprache = navigator.language || navigator.userLanguage;
-  const navigation = document.querySelector(".navigation");
-
-  if (sprache.startsWith("ar") || sprache.startsWith("he") || sprache.startsWith("fa")) {
-    navigation.setAttribute("dir", "ltr");
-  } else {
-    navigation.setAttribute("dir", "rtl");
+    naviContainer.classList.add("ltr");
+    navigation.classList.add("lrt");
   }
 });
