@@ -1,17 +1,16 @@
 // Lade die Datei "emissionen.json" asynchron (ohne die Seite zu blockieren)
 fetch("emissionen.json")
   // Wenn die Datei erfolgreich geladen wurde, wandle den Text in ein JavaScript-Objekt um
-  .then(function(response) {
+  .then(function (response) {
     return response.json();
   })
   // Wenn die Umwandlung erfolgreich war, arbeite mit den Daten weiter
-  .then(function(daten) {
+  .then(function (daten) {
     // Suche das <tbody>-Element innerhalb der Tabelle mit der ID "emissions-tabelle"
     const tabelle = document.querySelector("#emissions-tabelle tbody");
 
     // Durchlaufe jeden Eintrag im JSON-Array (z. B. jedes Unternehmen mit Emissionsdaten)
-    daten.forEach(function(eintrag) {
-
+    daten.forEach(function (eintrag) {
       // Erstelle eine neue Tabellenzeile <tr>
       const zeile = document.createElement("tr");
 
@@ -45,11 +44,11 @@ fetch("emissionen.json")
     });
   })
   // Wenn ein Fehler auftritt (z. B. Datei nicht gefunden), zeige ihn in der Konsole an
-  .catch(function(error) {
+  .catch(function (error) {
     console.error("Fehler beim Laden der JSON-Datei:", error);
   });
 
-  function tabelleFiltern() {
+function tabelleFiltern() {
   const eingabe = document.getElementById("suchfeld");
   const filter = eingabe.value.toUpperCase();
   const tabelle = document.getElementById("emissions-tabelle");
@@ -92,13 +91,16 @@ function sortiereTabelle(spaltenIndex) {
       const xContent = x.textContent.trim();
       const yContent = y.textContent.trim();
 
-      const istZahl = !isNaN(xContent.replace(/\./g, '').replace(',', '.'));
-      const a = istZahl ? parseFloat(xContent.replace(/\./g, '').replace(',', '.')) : xContent.toLowerCase();
-      const b = istZahl ? parseFloat(yContent.replace(/\./g, '').replace(',', '.')) : yContent.toLowerCase();
+      const istZahl = !isNaN(xContent.replace(/\./g, "").replace(",", "."));
+      const a = istZahl
+        ? parseFloat(xContent.replace(/\./g, "").replace(",", "."))
+        : xContent.toLowerCase();
+      const b = istZahl
+        ? parseFloat(yContent.replace(/\./g, "").replace(",", "."))
+        : yContent.toLowerCase();
 
       const tauschen =
-        (richtung === "asc" && a > b) ||
-        (richtung === "desc" && a < b);
+        (richtung === "asc" && a > b) || (richtung === "desc" && a < b);
 
       if (tauschen) {
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
@@ -111,7 +113,6 @@ function sortiereTabelle(spaltenIndex) {
   // Richtung fürs nächste Mal umdrehen
   sortierRichtung[spaltenIndex] = richtung === "asc" ? "desc" : "asc";
 }
-
 
 // script.js → nur JavaScript, ohne <script>!
 
@@ -126,17 +127,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const sprache = navigator.language || navigator.userLanguage;
   const naviContainer = document.querySelector(".nav-container");
   const navigation = document.querySelector(".navigation");
 
-  if (sprache.startsWith("ar") || sprache.startsWith("he") || sprache.startsWith("fa")) {
+  if (
+    sprache.startsWith("ar") ||
+    sprache.startsWith("he") ||
+    sprache.startsWith("fa") ||
+    sprache.startsWith("ur") ||
+    sprache.startsWith("dv") ||
+    sprache.startsWith("ku") ||
+    sprache.startsWith("yi") ||
+    sprache.startsWith("ps") ||
+    sprache.startsWith("syr")
+  ) {
     naviContainer.classList.add("rtl");
     navigation.classList.add("rtl");
   } else {
     naviContainer.classList.add("ltr");
-    navigation.classList.add("lrt");
+    navigation.classList.add("ltr");
   }
 });
