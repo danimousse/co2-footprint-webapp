@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenStat – Transparenz für Klimadaten</title>
+  </head>
+  <body>
+    <header>
+      <img src="bilder/logoklein.png" />
+      <h1>GreenStat</h1>
+      <p>Transparenz für Klimadaten</p>
+      <nav>
+        <ul>
+          <li><a href="#about">Über uns</a></li>
+          <li><a href="#data">Klimadaten</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>Über uns</h2>
+        <p>
+          GreenStat ist eine unabhängige Non-Profit-Organisation mit dem Ziel,
+          mehr Transparenz im Kampf gegen den Klimawandel zu schaffen. Unsere
+          Mission: verlässliche, vergleichbare und leicht zugängliche
+          CO₂-Emissionsdaten sichtbar machen – für alle Menschen, die sich für
+          Klimaschutz interessieren oder engagieren möchten. Wir glauben, dass
+          echte Veränderung nur mit Wissen und Offenheit beginnen kann. Deshalb
+          sammeln, strukturieren und präsentieren wir fiktive, aber
+          realitätsnahe Emissionsdaten von Unternehmen und Ländern auf
+          anschauliche Weise. Die Daten dienen zur Information, Sensibilisierung
+          und als Grundlage für Diskussionen in Bildung, Politik und
+          Zivilgesellschaft. GreenStat arbeitet unabhängig, werbefrei und
+          datenbasiert. Unser Team besteht aus ehrenamtlich engagierten
+          Entwickler:innen, Designer:innen und Umweltexpert:innen. Gemeinsam
+          entwickeln wir digitale Werkzeuge, die den Zugang zu
+          Klimainformationen erleichtern und neue Perspektiven auf die globale
+          CO₂-Bilanz eröffnen. Unsere Plattform ist frei zugänglich und wird
+          laufend weiterentwickelt. Wir laden alle Interessierten ein, sich zu
+          informieren, eigene Erkenntnisse zu gewinnen und den Dialog über
+          Klimaverantwortung mitzugestalten.
+        </p>
+        <img
+          src="bilder/team.jpg.jpg"
+          alt="Mehrere Mitglieder des GreenStat-Teams stehen konzentriert um einen Laptop und blicken gemeinsam auf den Bildschirm."
+          title="Das GreenStat-Team bei der gemeinsamen Arbeit"
+        />
+      </section>
+
+      <section id="data">
+        <h2>Klimadaten</h2>
+        <p>
+          Hier finden Sie eine Sammlung von Klimadaten aus verschiedenen
+          Quellen. Diese Daten können für Forschungszwecke, Bildungsprojekte
+          oder persönliche Interessen genutzt werden.
+        </p>
+        <input
+          type="text"
+          id="suchfeld"
+          onkeyup="tabelleFiltern()"
+          placeholder="Suche nach Land, Unternehmen oder Branche"
+        />
+
+        <table id="emissions-tabelle">
+          <thead>
+            <tr>
+              <th onclick="sortiereTabelle(0)">Land</th>
+              <th onclick="sortiereTabelle(1)">Unternehmen</th>
+              <th onclick="sortiereTabelle(2)">Branche</th>
+              <th onclick="sortiereTabelle(3)">Emissionen</th>
+              <th onclick="sortiereTabelle(4)">Jahr</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Bei Fragen oder Anregungen können Sie uns gerne kontaktieren:</p>
+        <address>
+          GreenStat e.V. Klimastraße 12 10405 Berlin Deutschland Telefon: +49
+          (0)30 1234 56789 E-Mail:
+          <a href="mailto: kontakt@greenstat.org">kontakt@greenstat.org</a>
+        </address>
+
+        <h3 id="impressum">Impressum</h3>
+        <p>
+          Verantwortlich für den Inhalt dieser Seite gemäß § 55 Abs. 2 RStV:
+        </p>
+        <p>
+          GreenStat e.V.<br />
+          Vorstand: Maria Grün<br />
+          Sitz des Vereins: Berlin
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 GreenStat e.V. – Alle Rechte vorbehalten.</p>
+      <p>
+        <a href="#impressum">Impressum</a>
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

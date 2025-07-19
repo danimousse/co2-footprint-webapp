@@ -1,0 +1,72 @@
+[
+  {
+    "land": "Deutschland",
+    "unternehmen": "EnergiePlus GmbH",
+    "branche": "Energie",
+    "emissionen": 2300000,
+    "jahr": 2023
+  },
+  {
+    "land": "USA",
+    "unternehmen": "GlobalOil Inc.",
+    "branche": "Öl & Gas",
+    "emissionen": 5700000,
+    "jahr": 2023
+  },
+  {
+    "land": "Indien",
+    "unternehmen": "SteelCore Ltd.",
+    "branche": "Industrie",
+    "emissionen": 3200000,
+    "jahr": 2022
+  },
+  {
+    "land": "Frankreich",
+    "unternehmen": "TransMobil S.A.",
+    "branche": "Verkehr",
+    "emissionen": 980000,
+    "jahr": 2023
+  },
+  {
+    "land": "Deutschland",
+    "unternehmen": "AgroGreen AG",
+    "branche": "Landwirtschaft",
+    "emissionen": 410000,
+    "jahr": 2022
+  },
+  {
+    "land": "USA",
+    "unternehmen": "FutureTech Corp.",
+    "branche": "Technologie",
+    "emissionen": 630000,
+    "jahr": 2023
+  },
+  {
+    "land": "Japan",
+    "unternehmen": "NipponSteel Co.",
+    "branche": "Industrie",
+    "emissionen": 1950000,
+    "jahr": 2022
+  },
+  {
+    "land": "China",
+    "unternehmen": "SinoEnergy Group",
+    "branche": "Energie",
+    "emissionen": 6100000,
+    "jahr": 2023
+  },
+  {
+    "land": "Brasilien",
+    "unternehmen": "VerdeTrans Ltda.",
+    "branche": "Verkehr",
+    "emissionen": 780000,
+    "jahr": 2022
+  },
+  {
+    "land": "Frankreich",
+    "unternehmen": "GreenBuild SAS",
+    "branche": "Bau",
+    "emissionen": 520000,
+    "jahr": 2023
+  }
+]
