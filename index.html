@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="de"></html>
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title >GreenStat - Transparenz für Klimadaten</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
 
   </head>
   <body>
     <header>
+      <div class="container">
         <div class="kopfbereich">
-      <img src="bilder/logoklein.png" />
+      <img src="bilder/logoklein.jpg.jpg" alt="Logo von Greenstat"/>
      <div class="titelbereich">
       <h1>GreenStat</h1>
       <p>Transparenz für Klimadaten</p>
@@ -28,14 +30,16 @@
         </ul>
       </nav>
     </div>
-    
+    </div>
     </header>
 
 
-    <main>
+   <main class="container my-5">
+
       <section id="about">
         <h2>Über uns</h2>
-        <p>
+       <div class="ueberuns-float-wrapper">
+        <p class="ueberuns-text">
           GreenStat ist eine unabhängige Non-Profit-Organisation mit dem Ziel,
           mehr Transparenz im Kampf gegen den Klimawandel zu schaffen. Unsere
           Mission: verlässliche, vergleichbare und leicht zugängliche
@@ -56,11 +60,14 @@
           informieren, eigene Erkenntnisse zu gewinnen und den Dialog über
           Klimaverantwortung mitzugestalten.
         </p>
+       
         <img
           src="bilder/team.jpg.jpg"
+          class = "ueberuns-bild" "img-fluid rounded shadow mb-4
           alt="Mehrere Mitglieder des GreenStat-Teams stehen konzentriert um einen Laptop und blicken gemeinsam auf den Bildschirm."
           title="Das GreenStat-Team bei der gemeinsamen Arbeit"
-        />
+          class="ueberuns-bild"/>
+      </div>
       </section>
 
       <section id="data">
@@ -73,12 +80,13 @@
         <input
   type="text"
   id="suchfeld"
+  class="form-control mb-3"
   onkeyup="tabelleFiltern()"
   placeholder="Suche nach Land, Unternehmen oder Branche..."
   style="margin-bottom: 10px; padding: 5px; width: 100%; max-width: 400px;"
 />
-
-        <table id="emissions-tabelle">
+<div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered"  id="emissions-tabelle">
           <thead>
             <tr>
               <th onclick="sortiereTabelle(0)">Land</th>
@@ -90,37 +98,45 @@
           </thead>
           <tbody></tbody>
         </table>
-
+</div>
     
       </section>
 
-      <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Bei Fragen oder Anregungen können Sie uns gerne kontaktieren:</p>
-        <address>
-          GreenStat e.V. Klimastraße 12 10405 Berlin Deutschland Telefon: +49
-          (0)30 1234 56789 E-Mail:
-          <a href="mailto: kontakt@greenstat.org">kontakt@greenstat.org</a>
-        </address>
+ <section id="contact">
+  <h2>Kontakt & Impressum</h2>
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      
+      <p>Bei Fragen oder Anregungen können Sie uns gerne kontaktieren:</p>
+      <address>
+        GreenStat e.V.<br>
+        Klimastraße 12<br>
+        10405 Berlin<br>
+        Deutschland<br>
+        Telefon: +49 (0)30 1234 56789<br>
+        E-Mail: <a href="mailto:kontakt@greenstat.org">kontakt@greenstat.org</a>
+      </address>
+    </div>
 
-        <h3 id="impressum">Impressum</h3>
-        <p>
-          Verantwortlich für den Inhalt dieser Seite gemäß § 55 Abs. 2 RStV:
-        </p>
-        <p>
-          GreenStat e.V.<br />
-          Vorstand: Maria Grün<br />
-          Sitz des Vereins: Berlin
-        </p>
-      </section>
+    <div class="col-md-6 mb-4">
+      
+      <p>Verantwortlich für den Inhalt dieser Seite gemäß § 55 Abs. 2 RStV:</p>
+      <p>
+        GreenStat e.V.<br>
+        Vorstand: Maria Grün<br>
+        Sitz des Vereins: Berlin
+      </p>
+    </div>
+  </div>
+</section>
+
+
     </main>
 
     <footer>
-      <p>&copy; 2023 GreenStat e.V. – Alle Rechte vorbehalten.</p>
-      <p>
-        <a href="#impressum">Impressum</a>
-      </p>
-    </footer>
+  <p>&copy; 2023 GreenStat e.V. – Alle Rechte vorbehalten.</p>
+  <p><a href="#contact">Impressum</a></p>
+</footer>
     <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

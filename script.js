@@ -53,6 +53,8 @@ function tabelleFiltern() {
   const filter = eingabe.value.toUpperCase();
   const tabelle = document.getElementById("emissions-tabelle");
   const zeilen = tabelle.getElementsByTagName("tr");
+  // Die Eingabe wird ausschließlich zum Vergleich von Text verwendet.
+  // Es erfolgt keine HTML-Ausgabe oder DOM-Manipulation mit der Eingabe selbst, damit besteht kein Risiko für XSS-Angriffe.
 
   for (let i = 1; i < zeilen.length; i++) {
     const zellen = zeilen[i].getElementsByTagName("td");
@@ -114,7 +116,7 @@ function sortiereTabelle(spaltenIndex) {
   sortierRichtung[spaltenIndex] = richtung === "asc" ? "desc" : "asc";
 }
 
-// script.js → nur JavaScript, ohne <script>!
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const burgerButton = document.getElementById("burger-toggle");

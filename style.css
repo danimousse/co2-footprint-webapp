@@ -1,34 +1,60 @@
-/* 🌿 Grund-Layout */
 body {
   background-color: #b7d9c7;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 header {
   padding: 10px;
-  background-color: #f2f9f6; /* sanftes Grün */
-  border-bottom: 2px solid #b7d9c7;
+  background-color: #f2f9f6;
+  
 }
 
-/* 🔠 Logo und Titel nebeneinander */
+
+
+/*Mehr Abstand um Überschriften */
+h2 {
+  margin-top: 3rem;  /* Abstand zur vorherigen Sektion */
+  margin-bottom: 1.5rem; /* Abstand zum folgenden Text */
+ color: #30543B; /* Dunkles Grün für Überschriften */
+}
+
+/*Logo und Titel nebeneinander */
 .kopfbereich {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-bottom: 1.3rem; 
 }
 
 .titelbereich h1 {
   margin: 0;
   font-size: 1.8rem;
-  color: #2a5934;
+  color: #30543B;
 }
 
 .titelbereich p {
   margin: 2px 0 0;
-  color: #4b7c5a;
+  color: #30543B;
   font-size: 1rem;
+}
+
+footer {
+  background-color: #5f9f72; 
+  padding: 1rem;
+  text-align: center;
+    color: #ffffff;
+}
+
+
+/*Linkfarben besser lesbar und harmonisch */
+a {
+  color: #30543B; /* dunkles Grün, passt zum Text */
+  text-decoration: underline; /* wichtig für Erkennbarkeit */
+}
+
+a:hover {
+  color: #203d2b; /* etwas dunkler beim Hover */
+  background-color: #d5ebe0; /* zarter grüner Hintergrund für Feedback */
+  text-decoration: none;
 }
 
 /* 📦 Wrapper für Burger & Navigation */
@@ -99,7 +125,7 @@ header {
   background-color: #d5ebe0;
 }
 
-/* 💻 Ab 768px: Horizontalmenü sichtbar */
+/*Ab 768px: Horizontalmenü sichtbar */
 @media (min-width: 768px) {
   .burger-button {
     display: none;
@@ -112,7 +138,7 @@ header {
   }
 
   .navigation {
-    display: block !important;
+    display: block;
     margin-top: 0;
   }
 
@@ -120,4 +146,30 @@ header {
     flex-direction: row;
     gap: 1rem;
   }
+  .ueberuns-layout {
+    flex-direction: column;
+  }
+
+  .ueberuns-bild,
+  .ueberuns-text {
+    flex: 1 1 100%;
+  }
+
+  .ueberuns-float-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
 }
+  .ueberuns-text {
+     width: 60%;
+  float: left;
+  margin-right: 2rem;
+}
+  .ueberuns-bild {
+ width: 35%;
+  float: right;
+}
+
+}
+  
+
