@@ -5,9 +5,9 @@ body {
 header {
   padding: 10px;
   background-color: #f2f9f6;
-  
+   width: 100%;
+  box-sizing: border-box;
 }
-
 
 
 /*Mehr Abstand um Überschriften */
@@ -36,12 +36,19 @@ h2 {
   color: #30543B;
   font-size: 1rem;
 }
+.ueberuns-bild {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 footer {
   background-color: #5f9f72; 
   padding: 1rem;
   text-align: center;
     color: #ffffff;
+     width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -125,6 +132,8 @@ a:hover {
   background-color: #d5ebe0;
 }
 
+
+
 /*Ab 768px: Horizontalmenü sichtbar */
 @media (min-width: 768px) {
   .burger-button {
@@ -146,20 +155,10 @@ a:hover {
     flex-direction: row;
     gap: 1rem;
   }
-  .ueberuns-layout {
-    flex-direction: column;
-  }
 
-  .ueberuns-bild,
-  .ueberuns-text {
-    flex: 1 1 100%;
-  }
+  
 
-  .ueberuns-float-wrapper::after {
-  content: "";
-  display: block;
-  clear: both;
-}
+
   .ueberuns-text {
      width: 60%;
   float: left;
@@ -168,6 +167,12 @@ a:hover {
   .ueberuns-bild {
  width: 35%;
   float: right;
+}
+
+  .ueberuns-float-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 }

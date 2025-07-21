@@ -112,7 +112,6 @@ function sortiereTabelle(spaltenIndex) {
     }
   }
 
-  // Richtung fürs nächste Mal umdrehen
   sortierRichtung[spaltenIndex] = richtung === "asc" ? "desc" : "asc";
 }
 
