@@ -64,7 +64,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* 📦 Wrapper für Burger & Navigation */
+/*Wrapper für Burger & Navigation */
 /* Standard (LTR) → Burger links */
 .nav-container.ltr .burger-button {
   margin-left: 0;
@@ -76,7 +76,7 @@ a:hover {
   margin-right: 0;
 }
 
-/* 🍔 Burger-Button */
+/*Burger-Button */
 .burger-button {
   font-size: 1.5rem;
   background: none;
@@ -87,7 +87,7 @@ a:hover {
   width: fit-content; /* Wichtig: sonst ist der Button 100% breit */
 }
 
-/* 🧭 Navigation (mobil: versteckt) */
+/*Navigation (mobil: versteckt) */
 .navigation {
   display: none;
   margin-top: 0.5rem;
@@ -156,7 +156,6 @@ a:hover {
     gap: 1rem;
   }
 
-  
 
 
   .ueberuns-text {
